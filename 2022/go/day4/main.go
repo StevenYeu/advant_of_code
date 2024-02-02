@@ -16,4 +16,8 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
 
+	for scanner.Scan() {
+
+	}
+
 }
