@@ -16,5 +16,14 @@ fn main() -> Result<()> {
 fn run_trie() {
     let mut node = stuff::types::Node{value: None, children: HashMap::new() };
     let word = "one".to_string();
-    stuff::types::add_word(&mut node, &word, 1)
+    stuff::types::add_word(&mut node, &word, 1);
+    let value = stuff::types::search_word(&node, &word);
+    match value {
+        Some(a) => {
+            println!("{}", a)
+        },
+        None => {
+            println!("No value")
+        }
+    }
 }

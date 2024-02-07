@@ -10,7 +10,7 @@ pub fn add_word(trie: &mut Node, word: &String, value: u32) {
     for char in word.chars() {
         let letter = cur.children.get(&char);
         match letter {
-            Some(a) => cur = cur.children.get_mut(&char).unwrap(),
+            Some(_) => cur = cur.children.get_mut(&char).unwrap(),
             None => {
                 let node = Node {
                     value: None,
@@ -22,4 +22,17 @@ pub fn add_word(trie: &mut Node, word: &String, value: u32) {
         }
     }
     cur.value = Some(value);
+}
+
+pub fn search_word(trie: &Node, word: &String) -> Option<u32> {
+    let mut cur = trie;
+    
+    for char in word.chars() {
+        let letter = cur.children.get(&char);
+        match letter {
+            Some(a) => {cur = &a},
+            None => {return None}
+        }
+    }
+    return cur.value
 }
