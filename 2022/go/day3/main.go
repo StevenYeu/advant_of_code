@@ -31,14 +31,14 @@ func main() {
 	scanner.Split(bufio.ScanLines)
 	sum := 0
 	for scanner.Scan() {
-		containerOneMap := make(map[rune]bool)
+		containerOneMap := make(map[rune]struct{})
 		line := scanner.Text()
 		count := len(line)
 		containerOne := line[0 : count/2]
 		containerTwo := line[count/2:]
 
 		for _, ch := range containerOne {
-			containerOneMap[ch] = true
+			containerOneMap[ch] = struct{}{} 
 		}
 		for _, ch := range containerTwo {
 			if _, ok := containerOneMap[ch]; ok {

@@ -34,7 +34,7 @@ pub fn search_word(trie: &Node, word: &String) -> Option<i32> {
             None => {return None}
         }
     }
-    return cur.value
+    cur.value
 }
 
 pub fn build_dict(trie: &mut Node, words: &Vec<(String, i32)>) {
